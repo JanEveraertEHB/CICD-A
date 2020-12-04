@@ -12,6 +12,9 @@ jobs:
       - run: cd api && npm ci
       - run: cd api && npm test
 
+
+      - setup_remote_docker
+      
       - run: |
           cd api
           TAG="0.1.${CIRCLE_BUILD_NUM}"
