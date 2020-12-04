@@ -57,7 +57,7 @@ app.get('/questions', async (req, res) => {
 })
 
 app.get('/question/:uuid', async (req, res) => {
-  if (req.params.uuid) {
+  if (req.params.uuid && db !== null) {
     await DatabaseHelper.table('records').select('*').where({ uuid: req.params.uuid }).then((data) => {
       if (data.length > 0) {
         res.send(data[0]);
